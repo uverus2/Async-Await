@@ -1,0 +1,25 @@
+{
+  "name": "async-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "callback.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"babel": "./node_modules/.bin/babel *.js --out-dir dist",
+	"copyFiles": "cp *.html dist/ ",
+	 "clear": "rm dist/*",
+	"build": "npm run babel && npm run copyFiles",
+	"dev": "live-server && npm run clear"
+  },
+  
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.23.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
+  }
+}
