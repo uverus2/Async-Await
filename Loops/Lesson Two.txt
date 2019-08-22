@@ -1,0 +1,23 @@
+var upper = 1000; // Highest value it can have 
+var randomNumber = getRandomNumber(upper); // stores random number value here
+var guess; // no value so doesnt match the randomNumber
+var attmepts = 0; // starts the loop
+
+
+function getRandomNumber(upper) {
+  return Math.floor( Math.random() * upper ) + 1;  // random number is generated 
+}
+
+
+while ( guess !== randomNumber ) { 
+  
+  // if guess is not equall to random number loops continues 
+  
+  guess = getRandomNumber(upper); // 
+  attmepts += 1;
+
+}
+
+document.write("<p> The random number was:" + randomNumber + "</p>");
+
+document.write("<p> It took the computer " +  attmepts + " attemps to get it right </p>" );

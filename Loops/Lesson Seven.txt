@@ -1,0 +1,37 @@
+// For loop for generating random rgb values 
+
+var html = '';
+var rgbColor; 
+
+function randomRGB() { // calls a function that generates a random colour 
+
+  return Math.floor(Math.random() * 256 ); // generates a random colour 
+
+}
+
+function randomColor() { // calls a function that generates an egb value 
+
+  var color = 'rgb('; // opens the rgb tag
+  
+  for ( var i = 0; i < 2 ; i += 1 ){
+    color += randomRGB() + ','; // adds the 1st and 2nd value to the color rgb string 
+  }
+    color += randomRGB() + ')'; // adds the 3rd value of the rgb color string 
+  return color;
+};
+
+
+function print(message) {
+  document.write(message)
+}
+
+// list the colours
+
+for ( var i = 0; i < 10 ; i += 1 ) { // for loop 
+  
+  rgbColor = randomColor();
+  html += '<div style="background-color:' + rgbColor + '"></div>';
+  
+}
+
+print(html);

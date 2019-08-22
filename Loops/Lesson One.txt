@@ -1,0 +1,16 @@
+function randomNumber(upper) {
+  return Math.floor( Math.random() * upper ) + 1;
+}
+
+var counter = 0; // starter 
+while (counter < 100000) //  as long as the counter number is less than 10 loop will run 
+{
+  
+var randomNum = randomNumber(6);
+document.write(randomNum + ' ');
+counter += 1; // each time loop is runned 1 is added to the counter variable 
+  
+ 
+  
+
+}

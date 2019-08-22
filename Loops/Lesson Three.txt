@@ -1,0 +1,25 @@
+var randomNumber = getRandomNumber(10);
+var guess;
+var guessCount = 0;
+var correctGuess = false; // called a flag becasue it has true or false value. It is used to say guess is false becasue user has not yet guessed
+
+function getRandomNumber( upper ) {
+  var num = Math.floor(Math.random() * upper) + 1; 
+  return num;
+}
+
+do {
+
+  guess = prompt("What number am i thinking off");
+  guessCount += 1; // increases after a guess 
+  if (parseInt(guess) === randomNumber){
+    // compares to see if guess is the same as the random number generated 
+    
+    correctGuess = true; // change when user has guessed right 
+  }
+    
+} 
+
+while(! correctGuess) // runs while the loop is false however as soon as the loop is true the loop stops running. While correct guess is not false then it stops running.
+document.write(" you guessed right ") 
+document.write("It took you " + guessCount + " tries. To get right number which is " + randomNumber); 
