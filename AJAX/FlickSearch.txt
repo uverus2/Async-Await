@@ -1,0 +1,44 @@
+$(document).ready (function () {
+  
+  $('form').submit(function (e) {
+    e.preventDefault();
+    var animal = $('#search').val();
+    var $submitButton = $('#submit').val();
+    var url = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + animal; 
+   	
+    animal.prop("disabled", true);
+    $submitButton.attr("disabled", true).val("Please Wait..")
+  
+  $.ajax ({
+    url: url,
+    method:"GET",
+    dataType:"jsonp",
+    jsonpCallback: "jsonFlickrFeed",
+    success: function (data){
+       console.log(data.responseText);
+  
+     let photoHTML = '<ul>';
+      
+      $.each(data.items, function (i,photos){
+         
+          
+        photoHTML += '<li class="grid-12 tablet-grid-50" >';
+        photoHTML += '<a href="' + photos.link + '" class="image">';
+        photoHTML += '<img src="' + photos.media.m + '"> </a></li>';
+       
+      });
+      
+      photoHTML += '</ul>';
+      $('#photos').html(photoHTML);
+     
+      animal.prop("disabled", false);
+      $submitButton.attr("disabled", false).val("Search");
+  
+  } // ends callback
+  
+  }); // End of $.ajax
+  
+  });
+  
+});
+

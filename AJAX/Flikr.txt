@@ -1,0 +1,42 @@
+$(document).ready (function () {
+  
+  $('button').click(function () {
+    
+    $("button").removeClass("selected");
+    $(this).addClass("selected");
+   
+    var animal = $(this).text();
+    var url = "http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=" + animal; 
+   
+  
+  $.ajax ({
+    url: url,
+    method:"GET",
+    dataType:"jsonp",
+    jsonpCallback: "jsonFlickrFeed",
+    success: function (data){
+       console.log(data.responseText);
+  
+     let photoHTML = '<ul>';
+      
+      $.each(data.items, function (i,photos){
+         
+          
+        photoHTML += '<li class="grid-12 tablet-grid-50" >';
+        photoHTML += '<a href="' + photos.link + '" class="image">';
+        photoHTML += '<img src="' + photos.media.m + '"> </a></li>';
+       
+      });
+      
+      photoHTML += '</ul>';
+      $('#photos').html(photoHTML);
+     
+  
+  
+  } // ends callback
+  
+  }); // End of $.ajax
+  
+  });
+  
+});
