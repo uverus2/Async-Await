@@ -1,0 +1,88 @@
+
+// Basic closure moduler function 
+!function () {
+	function foo() {
+		console.log('foobar')
+	};
+
+	foo();
+
+}());
+
+
+// import other globals and have a local reference for them withing the module
+
+!function (underscore) // giving it a local name. it can be kept the same as original
+ {
+	underscore.someawesomemethod = "yay";
+	console.log(underscore.VERSION);
+
+}(_); // bring it as a parameter
+
+
+// keeping your code from cluttering the global namespace and share information with different parts of the application
+
+we use module export
+
+	var awosomeNewModule = (function () {
+		var exports = {
+			foo:5,
+			bar: 10
+		};
+
+		exports.helloMars = function () {
+			console.log("Hello Mars!");
+		}; 
+
+		exports.goodbye = function () {
+			console.log("Goodbye!");
+		};
+
+		return exports
+	}());
+
+// Loose ogmentation 
+
+var awosomeNewModule = (function (exports) {
+		var exports = {
+			foo:5,
+			bar: 10
+		};
+
+		exports.helloMars = function () {
+			console.log("Hello Mars!");
+		}; 
+
+		exports.goodbye = function () {
+			console.log("Goodbye!");
+		};
+
+		return exports
+	}(awesomeNewModule || {} ));  If Assign new modules is first on the page eveyrhing after is assigned into the empty object or they will extent newModules if
+					new file is has already been created
+
+
+	
+Sub module Pattern 
+
+var awosomeNewModule.sub = (function (exports) {
+		var exports = {
+			foo:5,
+			bar: 10
+		};
+
+		exports.helloMars = function () {
+			console.log("Hello Mars!");
+		}; 
+
+		exports.goodbye = function () {
+			console.log("Goodbye!");
+		};
+
+		return exports
+	}(awesomeNewModule.sub || {} ));
+	
+
+
+
+

@@ -1,0 +1,19 @@
+var message = ' ';
+var student; 
+
+function print(message){
+  var outputDiv = document.getElementById("output");
+  outputDiv.innerHTML = message;
+
+}
+
+for (i = 0; i < students.length; i += 1){
+
+    student = students[i];
+    message += '<h2> Student: ' + student.name + '</h2>';
+    for ( key in student ){
+       message += '<h3>' + student[key] + '</h3>';
+    }
+}
+
+print(message);

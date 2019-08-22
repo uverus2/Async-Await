@@ -1,0 +1,83 @@
+class Pet {
+  
+  constructor(animal, age,breed,sound) {
+    
+    this.animal = animal;
+    this.breed = breed;
+    this.age = age;
+    this.sound = sound
+    
+  }
+  
+  
+ 
+  
+  get activity() {
+  
+    const today = new Date();
+    const hour = today.getHours();
+    
+    if( hour > 8 && hour <=20 ){
+      return "playing";
+    
+    } else {
+      
+      return "sleeping";
+    }
+    
+
+  }
+  
+  get owner() {
+    return this._owner;
+  }
+  
+  set owner(owner) {
+    
+    this._owner = owner;
+    console.log(`setter has been called: ${owner}`);
+  
+  }
+  
+  speak () {
+    console.log(this.sound);
+  }
+
+}
+
+
+ class Owner {
+  
+  constructor(name, address) {
+    this.name = name;
+    this.address = address;
+  }
+   
+   set phone(phone){
+ 
+    const nomalNuumb = phone.replace(/[^0-9]/g, '');
+   
+    this._phone = nomalNuumb;
+ 
+    }
+
+   get phone () {
+    
+     return this._owner;
+   
+   }
+   
+ }
+
+const earnie = new Pet('dog', 1, 'pug', 'Wolf');
+
+const benjie = new Pet('dog', 2, 'labrador' , 'Wolf');
+
+const jonhy = new Pet('cat', 4, 'cat' , 'Meow');
+
+
+earnie.owner = new Owner ("Ashely", '123 Mar Mar');
+earnie.owner.phone = '(555) 555 555'
+console.log(earnie.owner);
+
+

@@ -1,0 +1,23 @@
+var person = {
+  name : 'Sarah',
+  country : 'US',
+  age : 35,
+  treehouseStudent : true,
+  skills : ['JavaScript', 'HTML', 'CSS']
+};
+
+function print(message) {
+  var div = document.getElementById('output');
+  div.innerHTML = message;
+}
+
+var message = "<p> Hello. My name is " + person.name + " </p>";
+message += "<p> I live in the " + person.country + "</p>";
+person.name = " Konstantin Ruzhev";
+message += "<p> But i wish it was " + person.name + " </p>";
+person.age += 43;
+message += "<p> My age now is " + person.age + " </p>";
+message += "<p> I have " + person.skills.length + " different skills </p>";
+message += "<p> Favorite skill is " + person.skills[0] + "</p>";
+message += "<p> All my skills are " + person.skills.join(", ") + "</p>";
+print(message);
